@@ -49,7 +49,7 @@ publish {
     userOrg = 'yhyzgn'
     groupId = 'com.yhy.lang'
     artifactId = 'alang'
-    publishVersion = '1.0.0'
+    publishVersion = '1.0.1'
     desc = 'Simple syntax in Android Development.'
     website = 'https://github.com/yhyzgn/ALang'
 }

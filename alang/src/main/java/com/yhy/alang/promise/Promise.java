@@ -10,18 +10,18 @@ import android.os.Looper;
  * version: 1.0.0
  * desc   : Promise链式回调
  */
-public class Promise<T> {
-    private Executor<T> mExecutor;
+public class Promise<T, E> {
+    private Executor<T, E> mExecutor;
     private Then<T> mThen;
-    private Caught<String> mCaught;
+    private Caught<E> mCaught;
     private Handler mHandler;
 
-    private Promise(Executor<T> executor) {
+    public Promise(Executor<T, E> executor) {
         mExecutor = executor;
         mHandler = new Handler(Looper.getMainLooper());
     }
 
-    public static <T> Promise<T> get(Executor<T> executor) {
+    public static <T, E> Promise<T, E> get(Executor<T, E> executor) {
         return new Promise<>(executor);
     }
 
@@ -31,7 +31,7 @@ public class Promise<T> {
      * @param then 队列回调
      * @return 当前Promise对象
      */
-    public Promise<T> then(Then<T> then) {
+    public Promise<T, E> then(Then<T> then) {
         mThen = then;
         return this;
     }
@@ -42,7 +42,7 @@ public class Promise<T> {
      * @param caught 队列回调
      * @return 当前Promise对象
      */
-    public Promise<T> caught(Caught<String> caught) {
+    public Promise<T, E> caught(Caught<E> caught) {
         mCaught = caught;
         return this;
     }

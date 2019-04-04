@@ -7,7 +7,7 @@ package com.yhy.alang.promise;
  * version: 1.0.0
  * desc   : 执行器
  */
-public interface Executor<T> {
+public interface Executor<T, E> {
 
     /**
      * 执行操作
@@ -15,5 +15,5 @@ public interface Executor<T> {
      * @param resolver 正面解决方案
      * @param rejector 反面解决方案
      */
-    void execute(Resolver<T> resolver, Rejector<String> rejector);
+    void execute(Resolver<T> resolver, Rejector<E> rejector);
 }
