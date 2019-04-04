@@ -21,11 +21,12 @@ android {
         }
     }
 
-    // 忽略打包时的警告
     lintOptions {
-        checkReleaseBuilds false
         abortOnError false
-        ignoreWarnings true
+    }
+
+    testOptions {
+        unitTests.returnDefaultValues = true
     }
 
     // Java版本
